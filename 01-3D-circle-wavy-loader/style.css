@@ -1,0 +1,46 @@
+/** @format */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #9c27b0;
+  display: grid;
+  place-content: center;
+}
+
+.loader {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  transform-style: preserve-3d;
+  transform: perspective(400px) rotateX(60deg);
+}
+
+.loader span {
+  position: absolute;
+  display: block;
+  border: 5px solid #fff;
+  box-shadow: 0 5px 0 #ccc, inset 0 5px 0 #ccc;
+  border-radius: 50%;
+  top: calc(var(--child) * 10px);
+  bottom: calc(var(--child) * 10px);
+  left: calc(var(--child) * 10px);
+  right: calc(var(--child) * 10px);
+  animation: wavy 3s ease-in-out infinite;
+  animation-delay: calc((var(--child) * 1.8) * -0.1s);
+}
+
+@keyframes wavy {
+  0%,
+  100% {
+    transform: translateZ(-100px);
+  }
+  50% {
+    transform: translateZ(0);
+  }
+}
